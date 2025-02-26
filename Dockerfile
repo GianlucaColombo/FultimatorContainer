@@ -14,7 +14,7 @@ FROM node:16.16.0-alpine
 WORKDIR /app
 COPY --from=build /app/build ./build
 COPY fultimator/package*.json ./
-RUN npm ci --only=production
+RUN npm ci --omit=dev
 
 EXPOSE 3000
 CMD ["npm", "start"]
